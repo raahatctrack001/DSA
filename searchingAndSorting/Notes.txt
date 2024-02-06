@@ -1,0 +1,10 @@
+1. Binary Search Code
+2. Occurances of elements: first Occurances and last Occurances
+    no of occurances = lastOccurance-firstOccurance;
+    firstOccurance = lower_bound;
+    lastOccurance = upper_bound;
+3. Find Missing elements
+4. Peak Index in mountain array
+5. Find pivote index using binary Search
+6. search in rotated and sorted array
+7. square root using binary search
