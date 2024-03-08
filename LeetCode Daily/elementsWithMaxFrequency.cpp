@@ -58,3 +58,24 @@ public:
 
 
 //o(n) solution
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        //taking advantage of constraints;
+
+        int frequencies[101] = {0};
+        for(auto &num : nums)
+            frequencies[num]++;
+        
+        int maxFrequency = 0;
+        for(auto &frequency : frequencies)
+            maxFrequency = max(maxFrequency, frequency);
+
+        int elements = 0;
+        for(auto &frequency : frequencies)
+            if(maxFrequency == frequency)
+                elements += frequency;
+
+        return elements;
+    }
+};
