@@ -55,3 +55,6 @@ public:
         return maxFrequency;
     }
 };
+
+
+//o(n) solution
