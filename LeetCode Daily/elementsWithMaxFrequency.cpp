@@ -24,3 +24,34 @@ public:
         return ans;
     }
 };
+
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<int> sortedFrequencies;
+        int frequency = 1;
+        
+        for(int i = 1; i < nums.size(); i++){
+            if(nums[i] == nums[i-1])
+                frequency++;
+            else{
+                sortedFrequencies.push_back(frequency);
+                frequency = 1;
+            }
+        }
+        sortedFrequencies.push_back(frequency);
+        sort(sortedFrequencies.begin(), sortedFrequencies.end(), [&](int &a, int &b)->bool{
+            return a > b;
+        });
+
+        int maxFrequency = sortedFrequencies[0];
+        for(int i = 1; i < sortedFrequencies.size(); i++){
+            if(sortedFrequencies[i] == sortedFrequencies[i-1])
+                maxFrequency += sortedFrequencies[i];
+            else
+                break;
+        }
+        return maxFrequency;
+    }
+};
