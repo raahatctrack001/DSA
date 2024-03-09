@@ -33,3 +33,29 @@ public:
         return -1;
     }
 };
+
+//one pass solution
+//main aim is to reach close in values to each other as soon as possible
+class Solution {
+public:
+    int getCommon(vector<int>& first, vector<int>& second) {
+        int i = 0;
+        int j = 0;
+        int m = first.size();
+        int n = second.size();
+
+        while(i < m and j < n){
+            if(first[i] == second[j])
+                return first[i];
+            else if(first[i] < second[j]){
+                while(i < m and first[i] < second[j])
+                    i++;
+            }
+            else{
+                while(j < n and second[j] < first[i])
+                    j++;
+            }
+        }
+        return -1;
+    }
+};
