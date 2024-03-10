@@ -1,13 +1,14 @@
+//with map
 class Solution {
 public:
     vector<int> intersection(vector<int>& first, vector<int>& second) {
-        int freq[1000];
+        unordered_map<int, int> freq;
         for(auto &num: first)
             freq[num]++;
-        
+
         vector<int> ans;
-        for(auto &num: second){
-            if(freq[num] > 0){
+        for(auto &num : second){
+            if(freq.find(num) != freq.end() and freq[num] > 0){
                 ans.push_back(num);
                 freq[num] *= -1;
             }
