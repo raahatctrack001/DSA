@@ -16,3 +16,25 @@ public:
         
     }
 };
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string commonPrefix = "";   
+        string first = strs[0];
+        for(int i = 0; i < first.size(); i++){
+            char currentChar = first[i];
+            int j = 0;
+            for(; j < strs.size(); j++){
+                if(strs[j][i] == currentChar)
+                    continue;
+                else
+                    return commonPrefix;
+            }
+            if(j != strs.size())
+                return commonPrefix;
+            commonPrefix += currentChar;
+        }
+        return commonPrefix;
+    }
+};
