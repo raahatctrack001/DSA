@@ -27,6 +27,28 @@ and never update it as we want longest length */
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
+        int n = nums.size();
+        int maxWindowSize = 0;
+        for(int i = 0; i < n; i++){
+            int zeroCount = 0;
+            int oneCount = 0;
+            for(int j = i; j < n; j++){
+                if(nums[j] == 0)
+                    zeroCount++;
+                else
+                    oneCount++;
+                
+                if(zeroCount == oneCount)
+                    maxWindowSize = max(maxWindowSize, j-i+1);
+            }
+        }
+        return maxWindowSize;
+    }
+};
+
+class Solution {
+public:
+    int findMaxLength(vector<int>& nums) {
         //unordered_map<sum, index>
         unordered_map<int, int> sumIndex;
 
