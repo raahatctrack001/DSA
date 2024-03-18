@@ -7,7 +7,8 @@ bool isPossibleSolution(vector<int> &arr, int mid, int m, int n){
         
         else{
             studentCount++;
-            if(studentCount > m or arr[i] > mid)
+            if(studentCount > m or arr[i] > mid) 
+            //why arr[i] > mid ? false: as array is sorted and if arr[i] > mid ==> for all j > i arr[j] > mid that means no chance of further answer
                 return false;
             pageSum = arr[i];
         }
