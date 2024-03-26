@@ -19,6 +19,7 @@ upcoming projects:
 ( < 10 days/project)
 	A. Blog website
 	B. Personal Portfolio
+	C. Team Portfolio
     
 betwen 15days to 25 days/project
 	C. Whatsapp clone
