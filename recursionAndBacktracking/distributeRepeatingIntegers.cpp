@@ -32,6 +32,7 @@ public:
             }
         }    
         freq.push_back(count);
+        sort(quantity.rbegin(), quantity.rend()); // to detect true condition faster!
         int ithCustomer = 0;
         return isPossible(freq, quantity, ithCustomer);
 
