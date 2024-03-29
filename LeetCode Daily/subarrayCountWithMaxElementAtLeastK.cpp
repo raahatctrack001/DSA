@@ -20,3 +20,21 @@ public:
         return ans;
     }
 };
+
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int k) {        
+        int maxElement = *max_element(nums.begin(), nums.end());
+        long long ans = 0;
+        vector<int> maxIndexContainer;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] == maxElement)
+                maxIndexContainer.push_back(i+1);
+            if(maxIndexContainer.size() >= k){
+                ans += maxIndexContainer[maxIndexContainer.size()-k];
+            }
+        }
+        
+        return ans;
+    }
+};
