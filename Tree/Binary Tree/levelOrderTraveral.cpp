@@ -29,10 +29,37 @@ public:
         levelOrderTraversalRec(root->left, ans, i+1);
         levelOrderTraversalRec(root->right, ans, i+1);       
     }
+
+    vector<vector<int>> iterativeSolution(TreeNode *root){
+        if(!root)
+            return {};
+
+        vector<vector<int>> ans;
+        queue<TreeNode *> q;
+        q.push(root);
+
+        while(!q.empty()){
+            int len = q.size();
+            vector<int> levelValues;
+            for(int i = 0; i < len; i++){
+                TreeNode *front = q.front();
+                q.pop();
+
+                levelValues.push_back(front->val);
+                if(front->left)
+                    q.push(front->left);
+
+                if(front->right)
+                    q.push(front->right);
+            }
+            ans.push_back(levelValues);
+        }
+        return ans;
+    }
     vector<vector<int>> levelOrder(TreeNode* root) {
         int h = height(root);
         vector<vector<int>> ans(h);
-        levelOrderTraversalRec(root, ans);
-        return ans;
+        return iterativeSolution(root);
+        // return ans;
     }
 };
